@@ -13,9 +13,18 @@ var Sensors = Sensors || {};
     layers: basemap
   });
 
-  var dataLayer = new L.FeatureGroup();
+  var mapAttribution = new L.Control.Attribution({
+    prefix: false,
+    position: 'bottomright'
+  });
 
-  // Trying to push a refresh
+  var attribution = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/license/by/3.0">CC BY 3.0</a>.  Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.';
+
+  mapAttribution.addAttribution(attribution);
+
+  map.addControl(mapAttribution);
+
+  var dataLayer = new L.FeatureGroup();
 
   $.getJSON('data/output.geojson', function (data) {
 
