@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>Clean Air Sensor</title>
+	<meta name="description" content="A prototype map of data sensor data collected from an Arduino">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <meta http-equiv="cleartype" content="on">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.css">
+<!--         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+ -->        <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div id="map"></div>
+    <div class="explanation">
+        <h1>SEPTA Climate Tracker</h1>
+
+        <p>This application uses an <a href="http://www.arduino.cc/">Arduino</a> to log temperature, humidity and (in the future) other climate sensor data on SEPTA buses to create a world-first moving heat island of thousands of data points all day long.</p>
+        <p>The size of the logged points is the humidity change against the average and the color is the temperature change compared to the average with (blue for cooler, red for hotter).</p>
+        <p>Created by Joshua Meyer, Abdus Muwwakkil and Dave Walk at the <a href="http://appsforphilly.org/events/transit-2013">2013 Philadelphia Transit Hackathon</a>. 
+        <p><a href="https://github.com/davewalk/septa-climate-tracker">Our code is on GitHub</a>.</a></p>
+    </div>
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+         })();
+    </script>
+</body>
+</html>
