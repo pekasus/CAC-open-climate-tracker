@@ -15,6 +15,8 @@ var Sensors = Sensors || {};
 
   var dataLayer = new L.FeatureGroup();
 
+  // Trying to push a refresh
+
   $.getJSON('data/output.geojson', function (data) {
 
     var humiditySum = _.reduce(data.features, function (memo, point) { return memo + point.properties.humid; }, 0);
