@@ -1,0 +1,6 @@
+*.sublime-project
+*.sublime-workspace
+vendor
+node_modules
+data
+lib

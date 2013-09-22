@@ -1,0 +1,35 @@
+{
+  "name": "septa-climate-tracker",
+  "version": "0.0.0",
+  "description": "An Arduino clean air sensor for SEPTA buses",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davewalk/clean-air-sensor"
+  },
+  "keywords": [
+    "open",
+    "data",
+    "SEPTA",
+    "clean",
+    "air",
+    "humidity",
+    "temperature",
+    "Arduino",
+    "hardware",
+    "hackathon",
+    "Philly",
+    "Philadelphia"
+  ],
+  "author": [
+    "Dave Walk",
+    "Joshua Meyer"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "geojson": "~0.1.4"
+  }
+}

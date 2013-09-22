@@ -1,0 +1,33 @@
+body, html{
+    height: 100%;
+    overflow: hidden;
+    background-color: red;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#map {
+    height: 100%;
+    width: 75%;
+    float: left;
+}
+
+.explanation {
+    background-color: #E8EBE4;
+    padding-top: 35px;
+    padding: 20px;
+    left: 75%;
+    position: absolute;
+    color: black;
+    height: 100%;
+    margin: 0 auto;
+    border-left: 3px solid black;
+}
+
+a {
+    text-decoration: none;
+    color: #1AA5E5;
+}
+
+a:hover {
+    text-decoration: underline;
+}
