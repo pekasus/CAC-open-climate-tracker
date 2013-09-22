@@ -15,7 +15,7 @@ var Sensors = Sensors || {};
 
   var dataLayer = new L.FeatureGroup();
 
-  $.getJSON('septa-climate-tracker/data/output.geojson', function (data) {
+  $.getJSON('data/output.geojson', function (data) {
 
     var humiditySum = _.reduce(data.features, function (memo, point) { return memo + point.properties.humid; }, 0);
     var humidityAvg = humiditySum / data.features.length;
