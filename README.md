@@ -6,6 +6,8 @@ The size of the logged points is the humidity change against the average and the
 
 ![alt tag](https://raw.github.com/davewalk/septa-climate-tracker/master/img/photo1.jpg)
 
+[Wiki Page](https://github.com/davewalk/septa-climate-tracker/wiki)
+
 ### Future steps
 
 - Print humidity, temperature, latitude and longitude to a log file on the Arduino
