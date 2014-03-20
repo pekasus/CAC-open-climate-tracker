@@ -1,29 +1,25 @@
-# SEPTA Climate Tracker
+# Clean Air Council Climate Tracker
 
-This application uses an Arduino to log temperature, humidity and (in the future) other climate sensor data on SEPTA buses to create a world-first moving heat island of thousands of data points all day long.
+The CAC Climate Tracker will create a city-wide network of sensors to gather data on microclimate and pollution and made the data available to researchers and app developers in order to study the effects of climate change and publicize heat and pollution data in real time. The data will be combined with OpenTreeMaps to study the effect trees have on pollution and their capacity to mitigate climate change at the local level, with the goal of putting a dollar value on a tree in terms of mitigating pollution and the effects of climate change.  
 
-The size of the logged points is the humidity change against the average and the color is the temperature change compared to the average with (blue for cooler, red for hotter).
+![alt tag](https://github.com/pekasus/CAC-open-climate-tracker)
 
-![alt tag](https://raw.github.com/davewalk/septa-climate-tracker/master/img/photo1.jpg)
-
-[Wiki Page](https://github.com/davewalk/septa-climate-tracker/wiki)
+[Wiki Page](https://github.com/pekasus/CAC-open-climate-tracker/wiki)
 
 
 ### Next steps
 
-While we are waiting for the 1284 boards to be printed, we will run the program on the Beaglebone Black. The initial components are:
+The 1284p based boards are printed and tested. We are now developing the protocol for wireless communication, via Xbee and Bluetooth. We will gather the following data as test data:
 
 - GPS
 - Temp/Humidity
-- Storage to onboard flash drive
-- Upload data to computer
+- Location of trees
+- Location of potholes
 
 ### Future steps
 
-- Connect to web via wifi and transfer files
-- Explore data transmission with XBee
-- Parse and store the Arduino data in a database
-- Graphically display data on map
-- Expose the database as an API
+- gather data on a cloud database
+- plot data on map
+- compare data to existing tree maps
 
 Created by Joshua Meyer, Abdus Muwwakkil and Dave Walk at the [2013 Philadelphia Transit Hackathon](http://appsforphilly.org/events/transit-2013).
