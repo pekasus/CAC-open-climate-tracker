@@ -1,2 +1,22 @@
-
 Here is a link with a tutorial to set up the network: http://examples.digi.com/get-started/basic-xbee-802-15-4-chat/
+
+Here are instructions to set up point to point communication for 2 XBees. Open CoolTerm, find device, and start comm.
+
+On the first one:
+1. Options - select device - ok
+2. Type +++ (don't press enter)
+3. ATID2171 (ENTER)
+4. ATMY1 (ENTER)
+5. ATDL0 (ENTER)
+6. ATBD3 (ENTER)
+7. ATWR (ENTER)
+
+On the second one, enter:
+1. Options - select device - ok
+2. Type +++ (don't press enter)
+3. ATID2171 (ENTER)
+4. ATMY0 (ENTER)
+5. ATDL1 (ENTER)
+6. ATBD3 (ENTER)
+7. ATWR (ENTER)
+
