@@ -1,0 +1,33 @@
+/* This is a comment.
+
+Everything between the slash and star is overlooked by compiler.
+
+It's always a good idea to put a title, author, rights, and description at the top in the comment.
+
+Introduction to Arduino Program
+By: Joshua N Meyer
+5/20/14
+CC BY 3.0 US
+*/
+
+// This is a way to 'comment out' one line of code that will be ignored by the compiler.
+
+
+// Preprocessor
+
+#include <EEPROM.h>;
+
+const int blue = 3;
+const int red = 4;
+
+void setup() { // setup is run once at the beginning
+ pinMode(blue, OUTPUT);
+ pinMode(red, OUTPUT);
+} // make sure to close all actions
+
+void loop() {
+  digitalWrite(blue, HIGH);
+  delay(500);
+  digitalWrite(blue, LOW);
+  delay(500);
+}
