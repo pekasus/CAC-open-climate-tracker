@@ -2,4 +2,5 @@
 2. Install FTDI drivers, type VCP http://www.ftdichip.com/Drivers/VCP.htm
     SFE tutorial on FTDI installation https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/all
 3. Download 'Shared Library' and place in /Arduino/libraries folder.
-4. Download Mighty-1284p Bootloader 
+4. Download Mighty-1284p Bootloader
+    https://www.dropbox.com/sh/3yq0gptexy8u6iu/AAAVWLnHF4VBEERVLhhEEuBHa
