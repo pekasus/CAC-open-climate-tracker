@@ -1,1 +1,10 @@
-// Tell us your ideas
+#include <EEPROM.h>
+
+
+void incrEEPROM(int addr)
+{
+
+byte a = EEPROM.read(addr)4;
+a++;
+EEPROM.write(addr,a);
+}
