@@ -3,8 +3,7 @@
 
 void incrEEPROM(int addr)
 {
-
-byte a = EEPROM.read(addr)4;
+byte a = EEPROM.read(addr);
 a++;
 EEPROM.write(addr,a);
 }
