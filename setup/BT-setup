@@ -1,0 +1,21 @@
+// set up Bluetooth
+
+
+unsigned int var;
+
+void setup() {
+  Serial.begin(38400);
+  Serial1.begin(38400);
+  Serial.println("Game on.");
+  var = 0;
+}
+
+void loop() {
+  Serial.println(var);
+  Serial1.println(var);
+  Serial.println("all good");
+  Serial1.println("all good");
+  delay(1000);
+  var++;
+}
+
