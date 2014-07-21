@@ -2,6 +2,9 @@
 #include <SoftwareSerial.h> // must include du to GPS library
 #include "DHT.h"
 #define DHTPIN 23
+#include <Wire.h>
+#include <LiquidTWI2.h>
+
 
 //#define DHTTYPE DHT11   // DHT 11 
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
@@ -13,6 +16,7 @@ Adafruit_GPS GPS(&Serial1);
 
 boolean usingInterrupt = false;
 
+LiquidTWI2 lcd(0);
 
 void setup() {
   Serial.begin(115200);
@@ -25,7 +29,12 @@ void setup() {
   useInterrupt(true); // sets data read on a timer
   dht.begin();
   delay(1000);
+  lcd.begin(16,2);
+lcd.clear();
+lcd.print("All Good!");
 }
+
+
 
 uint32_t timer = millis();
 
@@ -71,8 +80,14 @@ void loop() {
 //      Serial.print("Location: ");
       Serial.print(GPS.latitude, 4); //Serial.print(GPS.lat);
       Serial.print(','); 
+      lcd.clear();
+      lcd.print("Latd: ");
+      lcd.print(GPS.latitude, 4);
       Serial.print(GPS.longitude, 4); //Serial.println(GPS.lon);
       Serial.print(',');
+      lcd.setCursor(0,1);
+      lcd.print("LDECong:  ");
+      lcd.print(GPS.longitude, 4);
 //      Serial.print("Speed (knots): "); 
       Serial.print(GPS.speed);
 //      Serial.print("Angle: ");
