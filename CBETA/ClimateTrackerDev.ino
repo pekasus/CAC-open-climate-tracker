@@ -4,6 +4,7 @@
 #define DHTPIN 23
 #include <Wire.h>
 #include <LiquidTWI2.h>
+#include <SdFat.h>
 
 
 //#define DHTTYPE DHT11   // DHT 11 
@@ -18,9 +19,21 @@ boolean usingInterrupt = false;
 
 LiquidTWI2 lcd(0);
 
+const int chipSelect=SS;
+File dataFile;
+
+int record;
+
+
 void setup() {
   Serial.begin(115200);
   Serial.println("CBETA is powered up.");
+  pinMode(SS,OUTPUT);
+  if(!SD.begin(chipSelect)) {
+  Serial.println("card failed or not present");
+  }
+  dataFile=SD.open("CTLog.csv",FILE_WRITE);
+  
   GPS.begin(9600);
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
   //GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY); // alt to line above
@@ -32,7 +45,11 @@ void setup() {
   lcd.begin(16,2);
 lcd.clear();
 lcd.print("All Good!");
+
+record=0;
+
 }
+
 
 
 
@@ -114,6 +131,17 @@ void loop() {
       }
 //    }
   }
+  dataFile.print(record);
+  dataFile.print(",");
+  dataFile.print(t);
+  dataFile.print(",");
+  dataFile.print(h);
+  dataFile.print(",");
+  dataFile.print(GPS.latitute,4);
+  dataFile.print(",");
+  dataFile.println(GPS.longitude,4);
+  dataFile.flush();
+  record++;
 }
 
 
