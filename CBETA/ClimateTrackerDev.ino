@@ -1,15 +1,13 @@
 #include <Adafruit_GPS.h>
 #include <SoftwareSerial.h> // must include du to GPS library
 #include "DHT.h"
-#define DHTPIN 23
 #include <Wire.h>
 #include <LiquidTWI2.h>
 #include <SdFat.h>
 
 
-//#define DHTTYPE DHT11   // DHT 11 
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
-//#define DHTTYPE DHT21   // DHT 21 (AM2301)
+#define DHTPIN 23
 
 DHT dht(DHTPIN, DHTTYPE);
 Adafruit_GPS GPS(&Serial1);
@@ -22,17 +20,20 @@ LiquidTWI2 lcd(0);
 const int chipSelect=SS;
 File dataFile;
 
+//This is like the counter - every time the code loops (once per second) this increases by 1.
 int record;
 
 
 void setup() {
   Serial.begin(115200);
+  //This prints to the display on the CBeta board whatever is in the quotes
   Serial.println("CBETA is powered up.");
   pinMode(SS,OUTPUT);
   if(!SD.begin(chipSelect)) {
   Serial.println("card failed or not present");
   }
-  dataFile=SD.open("CTLog.csv",FILE_WRITE);
+//This is opening up the CTLog.csv file and setting it to write
+dataFile=SD.open("CTLog.csv",FILE_WRITE);
   
   GPS.begin(9600);
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
