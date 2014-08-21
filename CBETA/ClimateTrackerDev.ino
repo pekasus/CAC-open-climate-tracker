@@ -2,10 +2,6 @@
 #include <SoftwareSerial.h> // must include du to GPS library
 #include "DHT.h"
 #define DHTPIN 23
-#include <Wire.h>
-#include <LiquidTWI2.h>
-#include <SdFat.h>
-
 
 //#define DHTTYPE DHT11   // DHT 11 
 #define DHTTYPE DHT22   // DHT 22  (AM2302)
@@ -17,23 +13,10 @@ Adafruit_GPS GPS(&Serial1);
 
 boolean usingInterrupt = false;
 
-LiquidTWI2 lcd(0);
-
-const int chipSelect=SS;
-File dataFile;
-
-int record;
-
 
 void setup() {
   Serial.begin(115200);
   Serial.println("CBETA is powered up.");
-  pinMode(SS,OUTPUT);
-  if(!SD.begin(chipSelect)) {
-  Serial.println("card failed or not present");
-  }
-  dataFile=SD.open("CTLog.csv",FILE_WRITE);
-  
   GPS.begin(9600);
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
   //GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY); // alt to line above
@@ -42,29 +25,20 @@ void setup() {
   useInterrupt(true); // sets data read on a timer
   dht.begin();
   delay(1000);
-  lcd.begin(16,2);
-lcd.clear();
-lcd.print("All Good!");
-
-record=0;
-
 }
-
-
-
 
 uint32_t timer = millis();
 
 void loop() {
   // in case you are not using the interrupt above, you'll
-  // need to 'hand query' the GPS, not suggested :(
-  if (! usingInterrupt) {
+  // need to 'hand query' the GPS, not suggested :(//
+  //if (! usingInterrupt) {
     // read data from the GPS in the 'main loop'
-    char c = GPS.read();
+  //  char c = GPS.read();
     // if you want to debug, this is a good time to do it!
-    if (GPSECHO)
-      if (c) Serial.print(c);
-  }
+  //  if (GPSECHO)
+  //    if (c) Serial.print(c);
+ // }
   
   // if a sentence is received, we can check the checksum, parse it...
   if (GPS.newNMEAreceived()) {
@@ -97,14 +71,8 @@ void loop() {
 //      Serial.print("Location: ");
       Serial.print(GPS.latitude, 4); //Serial.print(GPS.lat);
       Serial.print(','); 
-      lcd.clear();
-      lcd.print("Latd: ");
-      lcd.print(GPS.latitude, 4);
       Serial.print(GPS.longitude, 4); //Serial.println(GPS.lon);
       Serial.print(',');
-      lcd.setCursor(0,1);
-      lcd.print("LDECong:  ");
-      lcd.print(GPS.longitude, 4);
 //      Serial.print("Speed (knots): "); 
       Serial.print(GPS.speed);
 //      Serial.print("Angle: ");
@@ -131,17 +99,6 @@ void loop() {
       }
 //    }
   }
-  dataFile.print(record);
-  dataFile.print(",");
-  dataFile.print(t);
-  dataFile.print(",");
-  dataFile.print(h);
-  dataFile.print(",");
-  dataFile.print(GPS.latitute,4);
-  dataFile.print(",");
-  dataFile.println(GPS.longitude,4);
-  dataFile.flush();
-  record++;
 }
 
 
