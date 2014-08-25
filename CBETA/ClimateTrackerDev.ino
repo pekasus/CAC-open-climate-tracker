@@ -57,14 +57,14 @@ uint32_t timer = millis();
 
 void loop() {
   // in case you are not using the interrupt above, you'll
-  // need to 'hand query' the GPS, not suggested :(
-  if (! usingInterrupt) {
+  // need to 'hand query' the GPS, not suggested :(//
+  //if (! usingInterrupt) {
     // read data from the GPS in the 'main loop'
-    char c = GPS.read();
+  //  char c = GPS.read();
     // if you want to debug, this is a good time to do it!
-    if (GPSECHO)
-      if (c) Serial.print(c);
-  }
+  //  if (GPSECHO)
+  //    if (c) Serial.print(c);
+ // }
   
   // if a sentence is received, we can check the checksum, parse it...
   if (GPS.newNMEAreceived()) {
